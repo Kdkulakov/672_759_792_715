@@ -8,7 +8,7 @@
 				<h3 class="green">тенденции {% now "Y" %}</h3>
 				<h3 class="big"> удобные стулья</h3>
 				<p>Новый уровень комфорта. Отличные характеристики.</p>
-				<a href="#" class="button-order">заказать <img src="/static/geekshop/img/arrow.png" alt=""></a>
+				<a href="#" class="button-order">заказать <img src="{% static 'geekshop/img/arrow.png' %}" alt=""></a>
 			</div>
 			<div class="navi">
 				<a href="#"></a><a href="#"></a><a href="#"></a>
@@ -19,28 +19,21 @@
 			<div class="featured-menu">
 					<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
 			</div>
-			<a class="explore" href="#">показать все <img src="img/arrow.png" alt=""></a>
+			<a class="explore" href="#">показать все <img src="{% static 'geekshop/img/arrow.png' %}" alt=""></a>
 			<div class="clearfix">
 			</div>
 			<div class="tab-content">
-				<div class="block">
-					<a href="#"><img src="/static/geekshop/img/product-1.jpg" alt="">
-						<div class="text">
-							<img src="img/icon-hover.png" alt="img">
-							<h4>Отличный стул</h4>
-							<p>Расположитесь комфортно. </p>
-						</div>
-					</a>
-				</div>
-				<div class="block">
-					<a href="#"><img src="/static/geekshop/img/product-2.jpg" alt="">
-						<div class="text">
-							<img src="img/icon-hover.png" alt="">
-							<h4>Стул повышенного качества</h4>
-							<p>Не оторваться. </p>
-						</div>
-					</a>
-				</div>
+				{% for product in products %}
+					<div class="block">
+						<a href="#"><img src="/media/{{product.image}}" alt="">
+							<div class="text">
+								<img src="{% static 'geekshop/img/icon-hover.png' %}" alt="img">
+								<h4>{{product.name}}</h4>
+								<p>{{product.short_desc}}. </p>
+							</div>
+						</a>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 
