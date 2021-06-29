@@ -1,0 +1,56 @@
+[
+  {
+      "category": "Стулья",
+      "name": "Красный стул",
+      "image": "product_images/product-4.jpg",
+      "short_desc": "Красивый стул",
+      "description": "",
+      "price": "2300.00",
+      "quantity": 10
+  },
+  {
+      "category": "Офис",
+      "name": "Лампа сфера",
+      "image": "product_images/product-1.jpg",
+      "short_desc": "Нежный ламповый свет",
+      "description": "",
+      "price": "4500.00",
+      "quantity": 23
+  },
+  {
+      "category": "Офис",
+      "name": "Кресло из белой кожи",
+      "image": "product_images/product-21.jpg",
+      "short_desc": "Уникальный дизайн",
+      "description": "",
+      "price": "14500.00",
+      "quantity": 20
+    },
+      {
+      "category": "Стулья",
+      "name": "Синий стул",
+      "image": "product_images/product-4.jpg",
+      "short_desc": "Красивый стул",
+      "description": "",
+      "price": "4300.00",
+      "quantity": 10
+  },
+  {
+      "category": "Классика",
+      "name": "Лампа сфера 2.0",
+      "image": "product_images/product-1.jpg",
+      "short_desc": "Нежный ламповый свет",
+      "description": "",
+      "price": "14500.00",
+      "quantity": 23
+  },
+  {
+      "category": "Модерн",
+      "name": "Кресло из белой кожи Носорога",
+      "image": "product_images/product-21.jpg",
+      "short_desc": "Уникальный дизайн",
+      "description": "",
+      "price": "24500.00",
+      "quantity": 20
+    }
+]

@@ -1,0 +1,14 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="col-3 mx-auto">
+    <form class="form-horizontal" action="{% url 'auth:register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+
+        <input class="form-control" type="submit" value="зарегистрироваться">
+    </form>
+    </div>
+
+{% endblock %}
