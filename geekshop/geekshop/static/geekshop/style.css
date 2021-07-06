@@ -82,11 +82,11 @@ html, body {
 }
 .basket {
 	display: block;
-	width: 23px;
+
 	height: 23px;	
 	background-image: url(img/basket.png);
 	position: absolute;
-	top: 63px;
+
 	left: 1210px;
 }
 
@@ -891,7 +891,6 @@ td:first-child {
 
 .details-products {
 	padding-left: 98px;
-	padding-right: 98px;
 	margin-top: 98px;
 	height: 651px; 
 }

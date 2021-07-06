@@ -1,0 +1,49 @@
+{% extends 'geekshop/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="details">
+			{% include 'mainapp/includes/inc_category_menu.html' %}
+
+			<div class="details-products">
+				<div class="details-slider">
+					<div class="slider-product text-center">
+						<img src="/media/{{product.image}}">
+					</div>
+					<div class="slider-control d-flex ">
+						<div class="block">
+							<a href="#"><img src="/media/{{product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="/media/{{product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="/media/{{product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="description">
+					<h3 class="big-bold">{{ product.name }}</h3>
+					<h3 class="red">горячее предложение</h3>
+					<p class="price"> {{ product.price }} <span>руб</span></p>
+					<a href="{% url 'basket:add' product.pk %}" class="red-button">
+						заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</a>
+					<div class="description-text">
+						{{ product.description }}
+					</div>
+				</div>
+			</div>
+    </div>
+{% endblock %}
