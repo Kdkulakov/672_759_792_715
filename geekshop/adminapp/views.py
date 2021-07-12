@@ -44,22 +44,22 @@ def user_create(request):
 
 
 def user_update(request, pk):
-    title = 'пользователи/редактировать'
+    title = 'пользователи/рудактирование'
 
     edit_user = get_object_or_404(ShopUser, pk=pk)
+
     if request.method == 'POST':
-        user_form = ShopUserAdminEditForm(request.POST, request.FILES)
+        edit_form = ShopUserAdminEditForm(request.POST, request.FILES, instance=edit_user)
+        if edit_form.is_valid():
+            edit_form.save()
 
-        if user_form.is_valid():
-            user_form.save()
-            return HttpResponseRedirect(reverse('admin_staff:user_update', args=[edit_user.pk]))
-
+            return HttpResponseRedirect(reverse('admin_staff:users'))
     else:
-        user_form = ShopUserAdminEditForm(instance=edit_user)
+        edit_form = ShopUserAdminEditForm(instance=edit_user)
 
     context = {
         'title': title,
-        'user_form': user_form,
+        'user_form': edit_form,
     }
 
     return render(request, 'adminapp/user_update.html', context)

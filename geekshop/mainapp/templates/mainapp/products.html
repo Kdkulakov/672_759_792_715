@@ -46,11 +46,11 @@
 					</div>
 				</div>
 			</div>
-
+		{% if products %}
 		<div class="featured mt-5">
-			<h2>
-			  Категория: "{{ category.name|title }}"
-			</h2>
+			{% if category %}
+				<h2>Категория: {{ category.name|title }}</h2>
+			{% endif %}
 			<div class="featured-menu">
 				<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
 			</div>
@@ -101,4 +101,7 @@
 				</div>
 			</div>
 		</div>
+	{% else %}
+
+	{% endif %}
 {% endblock %}
