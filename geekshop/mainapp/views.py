@@ -28,7 +28,6 @@ def get_same_products(hot_product):
 
 def products(request, pk=None, page=1):
     title = 'продукты/каталог'
-    basket = get_basket(request.user)
 
     hot_product = get_hot_product()
     same_products = get_same_products(hot_product)
@@ -70,7 +69,6 @@ def products(request, pk=None, page=1):
         'hot_product': hot_product,
         'same_products': same_products,
         'products': products,
-        'basket': basket,
     }
 
     return render(request=request, template_name='mainapp/products.html', context=context)
