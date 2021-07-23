@@ -12,10 +12,6 @@ html, body {
 	height: 100%;
 }
 
-.clr {
-	height: 384px;
-}
-
 .container {
 	width: 1566px;
 	margin: 0 auto;
@@ -537,8 +533,8 @@ html, body {
     background-color: #f7f7f7;
     padding-left: 99px;
     padding-right: 25px;
-    margin: -384px auto 0;
     clear: both;
+	margin-top: 20px;
 }
 .footer form {
 	position: relative;
@@ -904,6 +900,11 @@ td:first-child {
 }
 .slider-control a:hover .text {
 	display: block;
+}
+.block {
+	width: 25%;
+	margin-top: 50px;
+	margin-bottom: 150px;
 }
 .block img {
 	width: 100%;

@@ -42,7 +42,7 @@
 .tab-content {
 	margin-top: 50px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	margin-bottom: 20px;
 	flex-wrap: wrap;
 }
@@ -68,6 +68,7 @@
 /*}*/
 .related-products {
 	margin-bottom: 120px;
+	display: flex;
 }
 /*.related-products .block a img {*/
 /*	float: left;*/

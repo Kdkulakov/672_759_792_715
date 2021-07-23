@@ -87,7 +87,7 @@
 				{% endfor %}
 			</div>
 		</div>
-
+            {% if same_products %}
 			<div class="related">
 				<div class="title clearfix">
 					<h2>Похожие продукты</h2>
@@ -103,6 +103,7 @@
 							</div>
 						</a>
 					</div>
+
 					{% for prod in same_products %}
 					<div class="block">
 						<a href="#"><img src="/media/{{prod.image}}" alt="">
@@ -114,8 +115,10 @@
 						</a>
 					</div>
 					{% endfor %}
+
 				</div>
 			</div>
+                {% endif %}
 		</div>
 	{% else %}
 
