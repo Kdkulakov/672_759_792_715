@@ -64,6 +64,10 @@ class Product(models.Model):
     def __str__(self):
         return self.name or f"Product with id - {self.pk}"
 
+    @staticmethod
+    def get_items():
+        return Product.objects.filter(is_deleted=False).order_by('category', 'name')
+
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
