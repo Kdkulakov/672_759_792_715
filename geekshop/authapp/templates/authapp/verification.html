@@ -1,0 +1,25 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-3">
+                {% if user %}
+                    <h1>Позджравляем!</h1>
+                    <p>с успешной активации, теперь вы можете перейти на сайт.</p>
+                {% else %}
+                    <h1>Ошибка!</h1>
+                    <p>обратитесь к администратору и можете перейти на главную страницу.</p>
+                {% endif %}
+            </div>
+        </div>
+        <button class="btn btn-round form-control">
+        <a href="{% url 'index' %}" class="">
+            на главную страницу
+        </a>
+    </button>
+    </div>
+
+{% endblock %}

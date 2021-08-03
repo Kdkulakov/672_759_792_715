@@ -1,0 +1,87 @@
+.red-button {
+	display: block;
+	height: 71px;
+	width: 510px;
+	border-radius: 35px;
+	background-color: #f44336;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	color:  #ffffff;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 24px;
+	box-shadow: 0px 2px 4.85px 0.15px rgba(33, 33, 33, 0.35);
+	line-height: 70px;
+	letter-spacing: 6px;
+	margin-top: 31px;
+}
+.red-button:hover {
+	box-shadow: none;
+}
+.red-button:active {
+	box-shadow: none;
+	background-color: #d41306;
+}
+
+.details-products {
+	padding-left: 58px;
+	margin-top: 58px;
+	height: 420px;
+}
+.slider-product {
+	width: 570px;
+	height: 370px;
+}
+.slider-control {
+	height: 70px;
+	margin: 11px auto 0px;
+	padding-left: 190px
+}
+
+.tab-content {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+}
+
+.tab-content .block {
+	height: 270px;
+	width: 270px;
+	position: relative;
+	margin: 10px;
+}
+.related {
+	padding: 0px 98px;
+}
+.related .title {
+	height: 343px;
+	margin-right: 0;
+}
+/*.related .title h2 {*/
+/*	margin-top: 245px;*/
+/*}*/
+/*.related .title .explore {*/
+/*	margin-top: 262px;*/
+/*}*/
+.related-products {
+	margin-bottom: 120px;
+	display: flex;
+}
+/*.related-products .block a img {*/
+/*	float: left;*/
+/*}*/
+.related-products .block {
+	float: left;
+	margin-right: 30px;
+	display: block;
+	height: 370px;
+	width: 370px;
+	position: relative;
+}
+.related .title {
+    height: 200px;
+    margin-right: 0;
+}

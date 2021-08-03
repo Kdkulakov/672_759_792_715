@@ -1,0 +1,35 @@
+{% extends 'geekshop/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'basketapp/style.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'ordersapp/js/script.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+<div class="p-4">
+   <div class="category_delete">
+       <div class="h1">Уверены, что хотите удалить?</div>
+       {% include 'ordersapp/includes/inc_order_summary.html' %}
+       <form action="{% url 'ordersapp:order_delete' object.pk %}" method="post">
+           {% csrf_token %}
+           <input class="btn btn-danger" type="submit" value="удалить">
+       </form>
+       <button class="btn btn-success mt-4">
+           <a href="{% url 'ordersapp:orders_list' %}">отмена</a>
+       </button>
+   </div>
+</div>
+
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

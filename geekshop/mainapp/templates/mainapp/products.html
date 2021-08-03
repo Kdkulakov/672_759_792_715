@@ -1,0 +1,126 @@
+{% extends 'geekshop/base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+		<div class="details">
+			{% include 'mainapp/includes/inc_category_menu.html' %}
+
+			<div class="details-products">
+				<div class="details-slider">
+					<div class="slider-product text-center">
+						<img src="/media/{{hot_product.image}}">
+					</div>
+					<div class="slider-control d-flex ">
+						<div class="block">
+							<a href="#"><img src="/media/{{hot_product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="/media/{{hot_product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="/media/{{hot_product.image}}" alt="" class="w-50">
+								<div class="text"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="description">
+					<h3 class="big-bold">{{ hot_product.name }}</h3>
+					<h3 class="red">горячее предложение</h3>
+					<p class="price"> {{ hot_product.price }} <span>руб</span></p>
+					<a href="{% url 'products:product' hot_product.pk %}" class="red-button">
+						заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</a>
+					<div class="description-text">
+						{{ hot_product.description }}
+					</div>
+				</div>
+			</div>
+		{% if products %}
+		<div class="featured mt-5">
+			{% if category %}
+				<h2>Категория: {{ category.name|title }}</h2>
+			{% endif %}
+			<div class="paginator">
+			  {% if products.has_previous %}
+				<a href="{% url 'products:page' category.pk products.previous_page_number %}">
+				  <
+				</a>
+			  {% endif %}
+			  <span class="current">
+				страница {{ products.number }} из
+				{{ products.paginator.num_pages }}
+			  </span>
+			  {% if products.has_next %}
+				<a href="{% url 'products:page' category.pk products.next_page_number %}">
+				  >
+				</a>
+			  {% endif %}
+			</div>
+			<div class="featured-menu">
+				<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
+			</div>
+			<a class="explore" href="#">показать все <img src="{% static 'geekshop/img/arrow.png' %}" alt=""></a>
+			<div class="clearfix">
+			</div>
+			<div class="tab-content">
+				{% for product in products %}
+					<div class="block">
+						<a href="{% url 'products:product' product.pk %}"><img src="/media/{{product.image}}" alt="">
+							<div class="text">
+								<img src="{% static 'geekshop/img/icon-hover.png' %}" alt="img">
+								<h4>{{product.name}}</h4>
+								<p>{{product.short_desc}}. </p>
+							</div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+            {% if same_products %}
+			<div class="related">
+				<div class="title clearfix">
+					<h2>Похожие продукты</h2>
+					<a class="explore" href="#">показать все <img src="/static/geekshop/img/arrow.png" alt=""></a>
+				</div>
+				<div class="related-products clearfix">
+					<div class="block">
+						<a href="#"><img src="/media/{{product.image}}" alt="">
+							<div class="text">
+								<img src="img/icon-hover.png" alt="img">
+								<h4>Стул повышенного качества</h4>
+								<p>Не оторваться. </p>
+							</div>
+						</a>
+					</div>
+
+					{% for prod in same_products %}
+					<div class="block">
+						<a href="#"><img src="/media/{{prod.image}}" alt="">
+							<div class="text">
+								<img src="{% static 'geekshop/img/icon-hover.png' %}" alt="img">
+								<h4>{{prod.name}}</h4>
+								<p>{{prod.description}}</p>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+                {% endif %}
+		</div>
+	{% else %}
+
+	{% endif %}
+{% endblock %}

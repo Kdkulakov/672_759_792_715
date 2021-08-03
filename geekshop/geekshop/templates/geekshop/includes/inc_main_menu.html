@@ -1,0 +1,57 @@
+<div class="header clearfix">
+    <a href="{% url 'index' %}" class="logo"></a>
+    <ul class="menu">
+        <li><a href="{% url 'index' %}" class="active">домой</a></li>
+        <li><a href="{% url 'products:index' %}">продукты</a></li>
+        <li><a href="{% url 'contacts' %}">контакты</a></li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin_staff:users' %}">
+                    Админка
+                </a>
+            </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+
+        <li style="margin-top: -8px;">
+            <div class="dropdown">
+
+               <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                   {{ user.username|default:'Пользователь' }}
+                   <span class="caret"></span>
+               </a>
+               <ul class="dropdown-menu">
+                   <li>
+                       <a class="nav-link text-dark" href="{% url 'auth:edit' %}">
+                           Профиль
+                       </a>
+                   </li>
+                   <li>
+                       <a class="nav-link text-dark" href="{% url 'ordersapp:orders_list' %}">
+                           Заказы
+                       </a>
+                   </li>
+               </ul>
+            </div>
+        </li>
+
+        {% endif %}
+            <li>
+                {% if user.is_authenticated %}
+                  <a href="{% url 'auth:logout' %}">выйти</a>
+                {% else %}
+                  <a href="{% url 'auth:login' %}">войти</a>
+                {% endif %}
+            </li>
+
+    </ul>
+    <a href="#" class="search"></a>
+    <a href="{% url 'basket:view' %}" class="basket">
+      <span>
+        {% if basket %}
+          {{ basket.0.total_cost|floatformat:0 }} руб
+          ({{ basket.0.total_quantity }} шт)
+        {% endif %}
+      </span>
+    </a>
+</div>

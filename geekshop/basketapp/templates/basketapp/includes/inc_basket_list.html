@@ -1,0 +1,37 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Продукт</th>
+      <th scope="col">Количестов</th>
+      <th scope="col">Стоимость</th>
+      <th scope="col">Удалить</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in basket %}
+      <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ item.product }}</td>
+          <td><input type="number" name="{{ item.pk }}"
+               min="0"
+               value="{{ item.quantity }}"></td>
+          <td>{{ item.product.price }}</td>
+          <td>
+              <button class="btn btn-round">
+                <a href="{% url 'basket:remove' item.pk %}" class="">
+                удалить
+                </a>
+              </button>
+          </td>
+      </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+{% if basket %}
+    <div class="basket_summary">
+      В корзине {{ basket.0.total_quantity }} товаров общей стоимостью
+                {{ basket.0.total_cost }} руб
+    </div>
+{% endif %}

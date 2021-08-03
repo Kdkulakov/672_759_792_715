@@ -1,0 +1,25 @@
+[
+  {
+      "name": "Стулья",
+      "description": "Это супер стулья"
+  },
+  {
+      "name": "Дом",
+      "description": ""
+  },
+  {
+
+      "name": "Офис",
+      "description": ""
+  },
+  {
+      "name": "Модерн",
+      "description": "",
+      "created": "2021-06-25T21:45:41.825",
+      "updated": "2021-06-25T21:45:41.825"
+  },
+  {
+      "name": "Классика",
+      "description": ""
+  }
+]
