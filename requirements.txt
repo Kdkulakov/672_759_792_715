@@ -21,3 +21,7 @@ social-auth-core==4.1.0
 sqlparse==0.4.1
 urllib3==1.26.6
 psycopg2-binary
+django-debug-toolbar
+django-debug-toolbar-template-profiler
+django-extensions
+pydotplus
