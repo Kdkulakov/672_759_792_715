@@ -19,6 +19,7 @@ def get_links_menu():
     else:
         return ProductCategory.objects.filter(is_deleted=False)
 
+
 def get_category(pk):
     if settings.LOW_CACHE:
         key = f'category_{pk}'
@@ -59,6 +60,7 @@ def get_product(pk):
     else:
         return get_object_or_404(Product, pk=pk)
 
+
 def get_hot_product():
     products = get_products()
 
@@ -88,6 +90,7 @@ def get_products_in_category_orederd_by_price(pk):
     else:
         return Product.objects.filter(category__pk=pk, is_deleted=False, category__is_deleted=False).order_by('price')
 
+
 def get_same_products(hot_product):
     same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)
 
@@ -101,7 +104,7 @@ def products(request, pk=None, page=1):
     same_products = get_same_products(hot_product)
 
     links_menu = get_links_menu()
-    products =  get_products_orederd_by_price()
+    products = get_products_orederd_by_price()
 
     if pk is not None:
         if pk == 0:
@@ -109,7 +112,7 @@ def products(request, pk=None, page=1):
             category = {'pk': 0, 'name': 'все'}
         else:
             category = get_category(pk)
-            products = get_products_in_category_by_price(pk)
+            products = get_products_in_category_orederd_by_price(pk)
 
         paginator = Paginator(products, 2)
 
